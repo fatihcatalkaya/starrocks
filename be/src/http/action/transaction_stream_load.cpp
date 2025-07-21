@@ -95,7 +95,7 @@ static void _send_reply(HttpRequest* req, const std::string& str) {
     if (config::enable_stream_load_verbose_log) {
         LOG(INFO) << "transaction streaming load response: " << str;
     }
-    HttpChannel::send_reply(req, str);
+    HttpChannel::send_reply(req, HttpStatus::OK, str, "application/json");
 }
 
 void TransactionManagerAction::_send_error_reply(HttpRequest* req, const Status& st) {
